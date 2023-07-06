@@ -1,9 +1,24 @@
+/*
+
+Trabalho 4 de Inteligencia Artificial
+Aluno: Lucas Araujo Pena | 130056162
+
+Analise de desempenho de algoritmos de inversao.
+
+Desenvolvido e testado em ambiente Linux Ubuntu.
+
+Compilando:
+
+ > g++ main.cpp -o main && ./main
+
+*/
+
 #include <iostream>
 #include <random>
 #include <vector>
 #include <chrono>
 
-// Impotando somente o necessario
+// Importando somente o necessario
 using std::vector;
 using std::cout;
 using std::endl;
@@ -122,13 +137,14 @@ int main() {
     cout << "> Calculando tempo de execucao para a Inversao 1..." << endl;
     for (size_t i = 0; i < tamanhoDoArray.size(); i++)
     {
-
+        // Para que tenham o tamanho certo do array
         arrayInicial.resize(tamanhoDoArray[i]);
         arrayFinal.resize(tamanhoDoArray[i]);
 
         // Comeca o Timer
         auto start = std::chrono::high_resolution_clock::now();
 
+        // Cria uma lista em ordem e a inverte
         CriarLista(tamanhoDoArray[i], arrayInicial);
         Inverter(arrayInicial, arrayFinal, tamanhoDoArray[i]);
 
@@ -140,15 +156,15 @@ int main() {
 
         if( DEBUG )
         {
+            // Mostra os array na tela
+
             cout << endl;
-            // Print the generated array
             for (const auto &num : arrayInicial)
             {
                 cout << num << " ";
             }
             cout << endl;
 
-            // Print the generated array
             for (const auto &num : arrayFinal)
             {
                 cout << num << " ";
@@ -183,15 +199,15 @@ int main() {
 
         if (DEBUG)
         {
+            // Mostra os array na tela
+
             cout << endl;
-            // Print the generated array
             for (const auto &num : arrayInicial)
             {
                 cout << num << " ";
             }
             cout << endl;
 
-            // Print the generated array
             for (const auto &num : arrayFinal)
             {
                 cout << num << " ";
