@@ -31,7 +31,8 @@ using std::uniform_int_distribution;
 #define DEBUG_2  false
 
 vector<int> tamanhoDoArray = {10, 100, 1000, 10000, 50000, 60000};
-//vector<int> tamanhoDoArray = {10};
+vector<double> tempoInversao1;
+vector<double> tempoInversao2;
 
 void CriarLista( int tamanhoDoArray, vector<int>& arrayInicial )
 {
@@ -173,7 +174,8 @@ int main() {
         }
 
         // Mostra a duracao da execusao
-        cout << "\n> Tempo de execucao para " << tamanhoDoArray[i] <<" elementos: " << duration.count() * 1000.0 << " milisegundos" << endl;
+        tempoInversao1.push_back(duration.count());
+        cout << "\n> Tempo de execucao para " << tamanhoDoArray[i] <<" elementos: " << duration.count() * 1000.0 << " milisegundos." << endl;
     }
 
     cout << "\n---------------------------------------------------" << endl;
@@ -216,8 +218,26 @@ int main() {
         }
 
         // Mostra a duracao da execusao
-        cout << "\n> Tempo de execucao para " << tamanhoDoArray[i] << " elementos: " << duration.count() * 1000.0 << " milisegundos" << endl;
+        tempoInversao2.push_back(duration.count());
+        cout << "\n> Tempo de execucao para " << tamanhoDoArray[i] << " elementos: " << duration.count() * 1000.0 << " milisegundos." << endl;
     }
+
+    cout << "\n---------------------------------------------------\n" << endl;
+    cout << "  [Analise com base no tempo de exeucao para "<< tamanhoDoArray.back() <<" elementos.]" << endl;
+
+    double vezesMaisRapido = tempoInversao1.back() / tempoInversao2.back();
+    cout << "\n\n> O segundo algoritmo de inversao eh aproximadamente " << vezesMaisRapido << " vezes" <<
+    "\nmais rapido que o primeiro" << endl;
+
+    cout << "\nTempo medio por elemento" << endl;
+    cout << "-------------------------" << endl;
+    cout << "> Inversao 1: " << (tempoInversao1.back() / tamanhoDoArray.back()) * 1000 << " milisegundos." << endl;
+    cout << "> Inversao 2: " << (tempoInversao2.back() / tamanhoDoArray.back()) * 1000 << " milisegundos.\n\n" << endl;
+
+    cout << "> Analisando o codigo e o tempo das duas inversoes, pode-se concluir que\n  a primeira eh log(n^2) ";
+    cout << "e a segunda log(n), pois enquanto o primeiro\n  algoritmo percorre todo o array duas vezes por ";
+    cout << "elemento, o segundo algoritmo\n  percorre somente uma vez por elemento o array.\n\n" << endl;
 
     return 0;
 }
+
