@@ -26,12 +26,16 @@ using std::endl;
 #define DEBUG_1  false
 #define DEBUG_2  false
 
+// Caso seu computador tiver menos que 8gb de RAM, remover o 25000
+// Caso o processo seja terminado, aparece "Killed", remova o 25000
+vector<int> tamanhoDoArray = {10, 100, 1000, 10000, 25000};
+
+// Caso queira conferir o algoritmo, colocar todos os DEBUG = true e use este array menor
+//vector<int> tamanhoDoArray = {10};
+
 // Se seu computador tiver 16gb de RAM pode usar esse
 //vector<int> tamanhoDoArray = {10, 100, 1000, 10000, 50000, 60000};
 
-// Caso seu computador tiver menos que 8gb de RAM, remover o 25000
-// Caso o processo seja terminado, aparece "Killed", remova o 25000
-vector<int> tamanhoDoArray = {10, 100, 1000, 10000, 25000 };
 vector<double> tempoInversao1;
 vector<double> tempoInversao2;
 
