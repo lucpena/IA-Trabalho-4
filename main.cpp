@@ -14,7 +14,6 @@ Compilando:
 */
 
 #include <iostream>
-#include <random>
 #include <vector>
 #include <chrono>
 
@@ -22,15 +21,17 @@ Compilando:
 using std::vector;
 using std::cout;
 using std::endl;
-using std::random_device;
-using std::mt19937;
-using std::uniform_int_distribution;
 
 #define DEBUG    false
 #define DEBUG_1  false
 #define DEBUG_2  false
 
-vector<int> tamanhoDoArray = {10, 100, 1000, 10000, 50000, 60000};
+// Se seu computador tiver 16gb de RAM pode usar esse
+//vector<int> tamanhoDoArray = {10, 100, 1000, 10000, 50000, 60000};
+
+// Caso seu computador tiver menos que 8gb de RAM, remover o 25000
+// Caso o processo seja terminado, aparece "Killed", remova o 25000
+vector<int> tamanhoDoArray = {10, 100, 1000, 10000, 25000 };
 vector<double> tempoInversao1;
 vector<double> tempoInversao2;
 
